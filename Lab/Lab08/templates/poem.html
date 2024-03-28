@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ poem.title }}</title>
+</head>
+<body>
+    <h1>{{ poem.title }}</h1>
+    <h2>by {{ poem.author }}</h2>
+    <p>{{ poem.text }}</p>
+    <!-- Link back to the home page -->
+    <a href="{{ url_for('index') }}">Back to Poem Library</a>
+</body>
+</html>

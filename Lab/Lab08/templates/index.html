@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poem Library</title>
+</head>
+<body>
+    <h1>Poem Library</h1>
+    <ul>
+        {% for poem in poems %}
+            <li>
+                <h2>{{ poem.title }} by {{ poem.author }}</h2>
+                <!-- Link to the poem's full page. Note: poem_id is the index in the list. -->
+                <a href="{{ url_for('poem', poem_id=loop.index0) }}">Read More</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
