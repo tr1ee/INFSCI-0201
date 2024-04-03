@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>poems</title>
+</head>
+<body>
+    <h1>List of Poems</h1>
+    {% for poem in poems %}
+        <div>
+            <h2>{{ poem[0] }}</h2> <!-- Title -->
+            <h3>{{ poem[1] }}</h3> <!-- Author -->
+            <p>{{ poem[2] }}</p> <!-- Text -->
+        </div>
+    {% endfor %}
+</body>
+</html>
