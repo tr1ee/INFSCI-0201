@@ -1,1 +1,9 @@
+1.
+A web server is both software and hardware. The hardware aspect refers to the physical server that stores web server software and a website's component files. The software aspect is a program that uses HTTP (Hypertext Transfer Protocol) to serve the files that form web pages to users in response to their requests, which are forwarded by their computer's HTTP clients, such as browsers. Web servers process these requests, serve the requested resources (such as HTML, CSS, and images), and can also handle more complex tasks like processing scripts, database queries, and more.
 
+2.
+Users access resources from a web server primarily through web browsers by making a request to the server using a specific URL (Uniform Resource Locator). When a user enters a URL into their browser or clicks on a link, the browser sends an HTTP request to the web server hosting the site. The server then responds by sending back the requested resource, along with HTTP headers that include status information and metadata. The browser then renders the resource for the user, which might be an HTML page, an image, or a file download. Additionally, resources can be accessed through API calls or web services, especially when building web applications or for machine-to-machine communications.
+
+3.
+GET is used to request data from a specified resource. GET requests should only retrieve data and have no other effect on the data. A GET request can be cached, bookmarked, and it remains in the browser history. The query string (name/value pairs) is sent in the URL of a GET request.
+POST is used to send data to a server to create/update a resource. The data sent to the server with POST is stored in the request body of the HTTP request. Unlike GET, POST requests are never cached, cannot be bookmarked, and do not remain in the browser history. They have no restrictions on data length, making them more secure for sensitive data.
