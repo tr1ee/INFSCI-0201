@@ -1,21 +1,33 @@
+import sqlite3
+import streamlit as st
 import streamlit.components.v1 as components
 from jinja2 import Template
 
+def get_poems():
+    conn = sqlite3.connect('poems.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT title, author, text FROM poems")
+    poems = cursor.fetchall()
+    conn.close()
+    poems = [{'title': title, 'author': author, 'text': text} for title, author, text in poems]
+    return poems
+
+def render_html(poems):
+    template_path = 'templates/template.html'
+    with open(template_path, 'r') as file:
+        template_content = file.read()
+    
+    template = Template(template_content)
+    html_content = template.render(poems=poems)
+    return html_content
+
 def main():
-    # Your dynamic data — replace this with the select query from poems database
-    app_title = "My Streamlit App"
-    items = ["Item 1", "Item 2", "Item 3"]
+    poems = get_poems()
 
-    # Load the Jinja2 template
-    with open("templates/template.html", "r") as template_file:
-        template_content = template_file.read()
-        jinja_template = Template(template_content)
+    rendered_html = render_html(poems)
 
-    # Render the template with dynamic data
-    rendered_html = jinja_template.render(title=app_title, items=items)
+    components.html(rendered_html, height=400, scrolling=True)
 
-    # Display the HTML in Streamlit app
-    components.html(rendered_html, height=200, scrolling=True)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
+

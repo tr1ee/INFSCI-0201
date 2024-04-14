@@ -1,19 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>Poems Collection</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333366; }
+        div.poem { margin-bottom: 20px; }
+        div.poem h2 { color: #660033; }
+        div.poem p { margin: 5px 0; }
+    </style>
 </head>
 <body>
-    <div>
-        <h1>{{ title }}</h1>
-        <p>This is a simple Streamlit app with a Jinja2 template.</p>
-        <ul>
-            {% for item in items %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
+    <h1>Poems from the Collection</h1>
+    {% for poem in poems %}
+    <div class="poem">
+        <h2>{{ poem.title }} by {{ poem.author }}</h2>
+        <p>{{ poem.text }}</p>
     </div>
+    {% endfor %}
 </body>
 </html>
